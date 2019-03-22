@@ -16,6 +16,20 @@ git clone https://github.com/nicolaspearson/csharp.heroes.api.git
 docker-compose up
 ```
 
+**3. Migrations**
+
+Create the initial migrations, if they do not exist:
+
+```bash
+dotnet ef migrations add initial
+```
+
+Run the migrations:
+
+```bash
+dotnet ef database update
+```
+
 **3. Build and run the app**
 
 #### Run the app in development mode:
