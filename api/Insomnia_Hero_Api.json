@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 3,
-  "__export_date": "2019-03-22T18:44:35.338Z",
+  "__export_date": "2019-03-22T20:01:24.059Z",
   "__export_source": "insomnia.desktop.app:v6.3.2",
   "resources": [
     {
@@ -50,7 +50,7 @@
       "authentication": {},
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"Iron Man\",\n \t\"identity\": \"Tony Stark\",\n\t\"hometown\": \"New York\",\n\t\"age\": 34\n}"
+        "text": "{\n\t\"name\": \"Spiderman\",\n \t\"identity\": \"Peter Parker\",\n\t\"hometown\": \"New York\",\n\t\"age\": 21\n}"
       },
       "created": 1552230127039,
       "description": "",
@@ -69,7 +69,7 @@
       "isPrivate": false,
       "metaSortKey": -1552230506963,
       "method": "POST",
-      "modified": 1552493510268,
+      "modified": 1553284086116,
       "name": "Create Hero",
       "parameters": [],
       "parentId": "fld_224cbe2b98d540a59232440124078621",
@@ -98,7 +98,7 @@
       "isPrivate": false,
       "metaSortKey": -1552230506913,
       "method": "GET",
-      "modified": 1553280198867,
+      "modified": 1553283814272,
       "name": "Get Heroes",
       "parameters": [],
       "parentId": "fld_224cbe2b98d540a59232440124078621",
@@ -116,7 +116,7 @@
       "authentication": {},
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"Hulk\",\n \t\"identity\": \"Bruce Banner\",\n\t\"hometown\": \"Chicago\",\n\t\"age\": 41\n}"
+        "text": "{\n\t\"id\": \"1\",\n\t\"name\": \"Hulk\",\n \t\"identity\": \"Bruce Banner\",\n\t\"hometown\": \"Chicago\",\n\t\"age\": 41\n}"
       },
       "created": 1552230496911,
       "description": "",
@@ -135,7 +135,7 @@
       "isPrivate": false,
       "metaSortKey": -1552230506863,
       "method": "PUT",
-      "modified": 1552499929793,
+      "modified": 1553284064449,
       "name": "Update Hero",
       "parameters": [],
       "parentId": "fld_224cbe2b98d540a59232440124078621",
@@ -193,7 +193,7 @@
       "isPrivate": false,
       "metaSortKey": -1552230506888,
       "method": "GET",
-      "modified": 1553280212830,
+      "modified": 1553284709871,
       "name": "Get Hero By Id",
       "parameters": [],
       "parentId": "fld_224cbe2b98d540a59232440124078621",
@@ -203,7 +203,7 @@
       "settingRebuildPath": true,
       "settingSendCookies": true,
       "settingStoreCookies": true,
-      "url": "http://localhost:8000/hero/1",
+      "url": "http://localhost:8000/hero/2",
       "_type": "request"
     }
   ]
