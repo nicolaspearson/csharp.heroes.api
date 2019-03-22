@@ -70,5 +70,22 @@ namespace HeroApi.Controllers
 
             return NoContent();
         }
+
+        // DELETE: hero/1
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteHero(long id)
+        {
+            var hero = await _context.Heroes.FindAsync(id);
+
+            if (hero == null)
+            {
+                return NotFound();
+            }
+
+            _context.Heroes.Remove(hero);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
