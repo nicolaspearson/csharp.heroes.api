@@ -38,7 +38,7 @@ dotnet ef database update
 dotnet run -c Debug --project ./src/HeroApi/HeroApi.csproj
 ```
 
-The app will start running at <http://localhost:5000>
+The app will start running at <http://localhost:8000>
 
 #### Run the app in release mode:
 
@@ -46,7 +46,7 @@ The app will start running at <http://localhost:5000>
 dotnet run -c Release --project ./src/HeroApi/HeroApi.csproj
 ```
 
-The app will start running at <http://localhost:5000>
+The app will start running at <http://localhost:8000>
 
 ## Endpoints
 
@@ -77,7 +77,7 @@ DELETE /hero/{heroId}
 Run this command to benchmark request performance:
 
 ```
-wrk -d1m http://localhost:5000/hero
+wrk -d1m http://localhost:8000/hero
 ```
 
 ![benchmark](/img/benchmark.png)
