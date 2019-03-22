@@ -21,29 +21,29 @@ docker-compose up
 #### Run the app in development mode:
 
 ```bash
-
+dotnet run -c Debug --project ./src/HeroApi/HeroApi.csproj
 ```
 
-The app will start running at <http://localhost:8000>
+The app will start running at <http://localhost:5000>
 
 #### Run the app in release mode:
 
 ```bash
-
+dotnet run -c Release --project ./src/HeroApi/HeroApi.csproj
 ```
 
-The app will start running at <http://localhost:8000>
+The app will start running at <http://localhost:5000>
 
 ## Endpoints
 
 The following endpoints are available:
 
 ```
-GET /hero?id={heroId}
+GET /hero/{heroId}
 ```
 
 ```
-GET /heroes
+GET /hero
 ```
 
 ```
@@ -63,7 +63,7 @@ DELETE /hero/{heroId}
 Run this command to benchmark request performance:
 
 ```
-wrk -d1m http://localhost:8000/heroes
+wrk -d1m http://localhost:5000/hero
 ```
 
 ![benchmark](/img/benchmark.png)
