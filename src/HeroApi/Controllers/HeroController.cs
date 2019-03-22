@@ -28,7 +28,8 @@ namespace HeroApi.Controllers
 
         // GET: /hero
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hero>>> GetHeros()
+        [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
+        public async Task<ActionResult<IEnumerable<Hero>>> GetHeroes()
         {
             return await _context.Heroes.ToListAsync();
         }
