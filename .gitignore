@@ -210,3 +210,9 @@ project.lock.json
 *.feature.cs
 *.feature.xlsx.*
 *.Specs_*.html
+
+# Database files
+/hero-db/data
+
+# OS Files
+.DS_Store
