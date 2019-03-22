@@ -55,5 +55,20 @@ namespace HeroApi.Controllers
 
             return CreatedAtAction(nameof(GetHero), new { id = hero.Id }, hero);
         }
+
+        // PUT: hero/1
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutHero(long id, Hero hero)
+        {
+            if (id != hero.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(hero).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
