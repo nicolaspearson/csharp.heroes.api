@@ -45,5 +45,15 @@ namespace HeroApi.Controllers
 
             return Hero;
         }
+
+        // POST: /hero
+        [HttpPost]
+        public async Task<ActionResult<Hero>> PostHero(Hero hero)
+        {
+            _context.Heroes.Add(hero);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetHero), new { id = hero.Id }, hero);
+        }
     }
 }
