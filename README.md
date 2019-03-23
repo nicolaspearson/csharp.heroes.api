@@ -30,7 +30,7 @@ Run the migrations:
 dotnet ef database update
 ```
 
-**3. Build and run the app**
+**4. Build and run the app**
 
 #### Run the app in development mode:
 
@@ -47,6 +47,55 @@ dotnet run -c Release --project ./src/HeroApi/HeroApi.csproj
 ```
 
 The app will start running at <http://localhost:8000>
+
+## How I Created The Project
+
+Create `src` and `test` directories:
+
+```bash
+mkdir src
+mkdir test
+```
+
+Initialize the Web Api Project:
+
+```bash
+cd src
+dotnet new webapi -o HeroApi
+```
+
+Add PostgreSQL packages:
+
+```bash
+cd ./src/HeroApi
+dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL
+dotnet add package NpgSql.EntityFrameworkCore.PostgreSQL.Design
+```
+
+Added connection string to `appsettings.json`:
+
+```json
+{
+  ...
+  "ConnectionStrings": {
+    "DefaultConnection": "Host=localhost;Port=5432;Username=master;Password=masterkey;Database=hero;"
+  }
+}
+```
+
+Connect to the database in the `Startup` class:
+
+```csharp
+        ...
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContext<HeroContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            ...
+        }
+
+        ...
+```
 
 ## Endpoints
 
