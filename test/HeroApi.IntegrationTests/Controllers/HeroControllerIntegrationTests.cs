@@ -87,5 +87,35 @@ namespace HeroApi.IntegrationTests.Controllers
             Assert.Equal("Brooklyn", hero.Hometown);
             Assert.Equal(18, hero.Age);
         }
+
+        [Fact]
+        public async Task CanDeleteHero()
+        {
+            // Create a hero
+            await this.CanCreateHero();
+
+            var httpGetResponse = await _client.GetAsync("/hero/3");
+
+            // Must be successful.
+            httpGetResponse.EnsureSuccessStatusCode();
+
+            // Deserialize and examine results.
+            var stringResponse = await httpGetResponse.Content.ReadAsStringAsync();
+            var hero = JsonConvert.DeserializeObject<Hero>(stringResponse);
+            Assert.Equal(3, hero.Id);
+            Assert.Equal("Captain America", hero.Name);
+            Assert.Equal("Queens", hero.Hometown);
+            Assert.Equal(110, hero.Age);
+
+            // The endpoint or route of the controller action.
+            var httpResponse = await _client.DeleteAsync("/hero/3");
+
+            // Must be successful.
+            httpResponse.EnsureSuccessStatusCode();
+
+            // Must be not found.
+            httpGetResponse = await _client.GetAsync("/hero/3");
+            Assert.Equal(System.Net.HttpStatusCode.NotFound, httpGetResponse.StatusCode);
+        }
     }
 }
