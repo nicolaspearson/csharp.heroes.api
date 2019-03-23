@@ -64,5 +64,28 @@ namespace HeroApi.IntegrationTests.Controllers
             Assert.Equal(3, hero.Id);
             Assert.Equal("Captain America", hero.Name);
         }
+
+        [Fact]
+        public async Task CanUpdateHero()
+        {
+            // The endpoint or route of the controller action.
+            var httpResponse = await _client.PutAsJsonAsync("/hero/2", new Hero { Id = 2, Name = "Spiderman", Identity = "Peter Parker", Hometown = "Brooklyn", Age = 18 });
+
+            // Must be successful.
+            httpResponse.EnsureSuccessStatusCode();
+
+            var httpGetResponse = await _client.GetAsync("/hero/2");
+
+            // Must be successful.
+            httpGetResponse.EnsureSuccessStatusCode();
+
+            // Deserialize and examine results.
+            var stringResponse = await httpGetResponse.Content.ReadAsStringAsync();
+            var hero = JsonConvert.DeserializeObject<Hero>(stringResponse);
+            Assert.Equal(2, hero.Id);
+            Assert.Equal("Spiderman", hero.Name);
+            Assert.Equal("Brooklyn", hero.Hometown);
+            Assert.Equal(18, hero.Age);
+        }
     }
 }
