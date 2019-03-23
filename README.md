@@ -50,11 +50,14 @@ The app will start running at <http://localhost:8000>
 
 ## How I Created The Project
 
-Create `src` and `test` directories:
+Below are details of how I created the `Web Api` and `Test` projects.
+
+### Web Api
+
+Create the `src` directory:
 
 ```bash
 mkdir src
-mkdir test
 ```
 
 Initialize the Web Api Project:
@@ -96,6 +99,35 @@ Connect to the database in the `Startup` class:
 
         ...
 ```
+
+Finally create your models, and controllers.
+
+### Testing
+
+Create the `test` directory:
+
+```bash
+mkdir test
+```
+
+Initialize the Test Project:
+
+```bash
+cd test
+dotnet new xunit -o HeroApi
+```
+
+Add Testing packages:
+
+```bash
+cd ./test/HeroApi
+dotnet add package Microsoft.AspNetCore.Mvc.Testing
+dotnet add package Microsoft.AspNetCore.App
+```
+
+### Further Reading
+
+Check [this](https://fullstackmark.com/post/20/painless-integration-testing-with-aspnet-core-web-api) article for a more detailed explanation.
 
 ## Endpoints
 
