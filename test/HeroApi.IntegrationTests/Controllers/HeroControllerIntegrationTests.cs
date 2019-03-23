@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using Web.Api.Core.Domain.Entities;
+using HeroApi.Models;
 using Xunit;
 
-namespace Web.Api.IntegrationTests.Controllers
+namespace HeroApi.IntegrationTests.Controllers
 {
     public class HeroControllerIntegrationTests : IClassFixture<CustomWebApplicationFactory<Startup>>
     {

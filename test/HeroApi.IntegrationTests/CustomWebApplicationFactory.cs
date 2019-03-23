@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Web.Api.Infrastructure.Data;
+using HeroApi.Models;
 
-namespace Web.Api.IntegrationTests
+namespace HeroApi.IntegrationTests
 {
     public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<Startup>
     {
@@ -19,8 +19,8 @@ namespace Web.Api.IntegrationTests
                     .AddEntityFrameworkInMemoryDatabase()
                     .BuildServiceProvider();
 
-                // Add a database context (AppDbContext) using an in-memory database for testing.
-                services.AddDbContext<AppDbContext>(options =>
+                // Add a database context (HeroContext) using an in-memory database for testing.
+                services.AddDbContext<HeroContext>(options =>
                 {
                     options.UseInMemoryDatabase("InMemoryAppDb");
                     options.UseInternalServiceProvider(serviceProvider);
@@ -33,7 +33,7 @@ namespace Web.Api.IntegrationTests
                 using (var scope = sp.CreateScope())
                 {
                     var scopedServices = scope.ServiceProvider;
-                    var appDb = scopedServices.GetRequiredService<AppDbContext>();
+                    var appDb = scopedServices.GetRequiredService<HeroContext>();
 
                     var logger = scopedServices.GetRequiredService<ILogger<CustomWebApplicationFactory<TStartup>>>();
 

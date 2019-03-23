@@ -114,15 +114,29 @@ Initialize the Test Project:
 
 ```bash
 cd test
-dotnet new xunit -o HeroApi
+dotnet new xunit -o HeroApi.IntegrationTests
 ```
 
 Add Testing packages:
 
 ```bash
-cd ./test/HeroApi
+cd ./test/HeroApi.IntegrationTests
 dotnet add package Microsoft.AspNetCore.Mvc.Testing
 dotnet add package Microsoft.AspNetCore.App
+```
+
+Add a Reference to the Web Api project:
+
+```bash
+cd ./test/HeroApi.IntegrationTests
+dotnet add reference ../../src/HeroApi/HeroApi.csproj
+```
+
+Run the tests:
+
+```bash
+cd ./test/HeroApi.IntegrationTests
+dotnet test
 ```
 
 ### Further Reading
