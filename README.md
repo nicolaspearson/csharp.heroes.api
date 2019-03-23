@@ -77,7 +77,7 @@ dotnet add package NpgSql.EntityFrameworkCore.PostgreSQL.Design
 
 Added connection string to `appsettings.json`:
 
-```json
+```csharp
 {
   ...
   "ConnectionStrings": {
@@ -89,15 +89,13 @@ Added connection string to `appsettings.json`:
 Connect to the database in the `Startup` class:
 
 ```csharp
-        ...
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<HeroContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
-            ...
-        }
-
-        ...
+  ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+      services.AddDbContext<HeroContext>(options => options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+      ...
+  }
+  ...
 ```
 
 Finally create your models, and controllers.
